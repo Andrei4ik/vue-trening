@@ -1,0 +1,14 @@
+axios.post(apiUrl,JSON.stringify({
+                    message: messageObj.message,
+                    nick: messageObj.nick
+                })).then(()=>{
+                    this.$data.messages.push(MessageObj)
+                });
+
+
+ sendMessage: function (MessageObj) {
+                this.$store.dispatch("sendMessage", {
+                    nick: this.$data.nick,
+                    message: this.$data.message
+                });
+                this.$data.message = "";
